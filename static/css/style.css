@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+.sidebar{
+    background-color: #ddd;
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar>h5{
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size: 3rem;
+    text-align: center;
+}
+.body-content{
+    display: flex;
+}
+.college-list{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    overflow: scroll;
+    height: 100vh;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+.college-card{
+    background-color: #eee;
+    width: 95%;
+    height: max-content;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    justify-content: space-between;
+    gap: 20px;
+}
+.college-card>a{
+    border-radius: 10px;
+    color: white;
+    font-size: 1.25rem;
+    background-color: green;
+    padding: 5px 20px;
+    display: inline-block;
+    align-self: center;
+    text-decoration: none;
+}
+.college-card>h2{
+    font-size: 3rem;
+    margin: 0.4rem 0.5rem;
+    align-self: center;
+}
+.college-details {
+    display: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+}
+.slide-down {
+    animation: slideDown 0.5s normal;
+}
+
+.slide-up {
+    animation: slideUp 0.5s normal;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 300px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 300px;
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
