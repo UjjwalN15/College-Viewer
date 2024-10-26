@@ -20,7 +20,10 @@ from base.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home)
+    path('',home, name="home"),
+    path('search/', home, name='search_colleges'),  # New search view
+
+    # path('search/', search_colleges, name='search_colleges'),  # New search view
     # path('colleges/', CollegeApiViewsets.as_view({'get': 'list'}), name='colleges'),
     # path('colleges/<int:pk>/', CollegeApiViewsets.as_view({'get': 'retrieve', 'put':'update','patch': 'partial_update', 'delete':'destroy'}),name='colleges_detail'),
 ]

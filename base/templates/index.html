@@ -13,29 +13,15 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">College Viewer</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {% comment %} <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">BIT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">BBM</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">BSc. CSIT</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-          </div> {% endcomment %}
-          {% comment %} <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          {% comment %} <form method="get" action="{% url 'search_colleges' %}" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" value="{{ query }}" placeholder="Search Colleges" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> {% endcomment %}
+          </form> {% endcomment %}
+          <form action="{% url 'search_colleges' %}" method="get" class="d-flex" role="search">
+            <input type="text" class="form-control me-2" aria-label="Search" name="q" placeholder="Search for colleges..." value="{{ query }}">
+            <button type="submit" class="btn btn-outline-success">Search</button>
+        </form>
+        
         </div>
     </nav>
     <div class="body-content">
@@ -55,9 +41,11 @@
                         <p>Email: {{x.email}}</p>
                     </div>
                 </div>
+            {% empty %}
+                <p>No colleges found.</p> <!-- Display a message if no colleges are available -->
             {% endfor %}
         </div>
-    </div>
+  </div>
 </body>
 <script>
     document.querySelectorAll('.college-card a').forEach(button => {
